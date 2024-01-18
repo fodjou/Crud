@@ -1,0 +1,198 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "mich_stage",
+        "description": "etudiant",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get list of users",
+                "operationId": "8da6598098158c4b5959091235f83436",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/ajouter": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "View create user form",
+                "operationId": "c3c97872f781e3ac9fe10933bd37ef57",
+                "responses": {
+                    "200": {
+                        "description": "User form displayed"
+                    }
+                }
+            }
+        },
+        "/ajouter/traitement": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create a new user",
+                "operationId": "3fcaf8a960737c48cd972479ac0467c3",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "prenom": {
+                                        "type": "string"
+                                    },
+                                    "class": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User created"
+                    }
+                }
+            }
+        },
+        "/update/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get user by id",
+                "operationId": "eb9a7e92a9af02ce53e7ef8c9d3435f2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nom": {
+                                            "type": "string"
+                                        },
+                                        "prenom": {
+                                            "type": "string"
+                                        },
+                                        "class": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update/traitement": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update existing user",
+                "operationId": "73f019f08505eeba4dc9d4abcb2f3b82",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "required": [
+                                    "id",
+                                    "nom",
+                                    "prenom",
+                                    "class"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "prenom": {
+                                        "type": "string"
+                                    },
+                                    "class": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated"
+                    }
+                }
+            }
+        },
+        "/delete/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete user",
+                "operationId": "90c89751ee92abb2046365ec6f454186",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted"
+                    }
+                }
+            }
+        }
+    }
+}
